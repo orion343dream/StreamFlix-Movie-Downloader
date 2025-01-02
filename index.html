@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Watch & Download Movies</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --dark-bg: #141414;
+            --light-text: #ffffff;
+            --gray-text: #808080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .header-nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .header-nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-search {
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        .header-search input {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+        }
+
+        .header-search button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-nav-links {
+                display: none;
+            }
+
+            .header-menu-icon {
+                display: block;
+                color: var(--light-text);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--gray-text);
+        }
+
+        /* Movie Grid */
+        .movie-section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .movie-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 1rem;
+        }
+
+        .movie-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .movie-genre {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--light-text);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 4rem 5%;
+            color: var(--light-text);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-text);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--gray-text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray-text);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <nav class="header-nav">
+            <a href="#" class="header-logo">StreamFlix</a>
+            <div class="header-nav-links">
+                <a href="#home">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#tv-shows">TV Shows</a>
+                <a href="#premium">Premium</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="header-search">
+                <input type="search" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Unlimited Movies, Endless Entertainment</h1>
+        <p>Stream and download your favorite movies in high quality. Join millions of viewers today!</p>
+        <button class="btn btn-primary">Get Started</button>
+    </div>
+</section>
+
+<section class="movie-section">
+    <h2 class="section-title">Trending Now</h2>
+    <div class="movie-grid">
+
+        <!-- A Complete Unknown -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.izvY8ljkwXJ%2fLs1VCrNOtw&rs=1&pid=ImgDetMain" alt="A Complete Unknown" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">A Complete Unknown</h3>
+                <p class="movie-genre">Biography | Drama</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/a-complete-unknown" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/a-complete-unknown" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sonic the Hedgehog 3 -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.URHpqCHLJN5x%2fPe%2baUhsVQ&rs=1&pid=ImgDetMain" alt="Sonic the Hedgehog 3" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Sonic the Hedgehog 3</h3>
+                <p class="movie-genre">Action | Adventure | Family</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/sonic-hedgehog-3" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/sonic-hedgehog-3" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mufasa: The Lion King -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.NYqPrt1tPDz31DLHpYLX%2bg&rs=1&pid=ImgDetMain" alt="Mufasa: The Lion King" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Mufasa: The Lion King</h3>
+                <p class="movie-genre">Animation | Adventure | Drama</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/mufasa-lion-king" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/mufasa-lion-king" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nosferatu -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.mnXrp9k8G%2fH9kurIZOVPbg&rs=1&pid=ImgDetMain" alt="Nosferatu" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Nosferatu</h3>
+                <p class="movie-genre">Horror | Drama</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/nosferatu-2024" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/nosferatu-2024" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+        <!-- Continuing with more movies... -->
+        <!-- Gladiator II -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIF.GlQH1XusQtPkQBzJOL5bKw?rs=1&pid=ImgDetMain" alt="Gladiator II" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Gladiator II</h3>
+                <p class="movie-genre">Action | Drama | History</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/gladiator-2" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/gladiator-2" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kraven the Hunter -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIF.tCkclbb0HWwJYJm2rEhvOw?rs=1&pid=ImgDetMain" alt="Kraven the Hunter" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Kraven the Hunter</h3>
+                <p class="movie-genre">Action | Adventure | Sci-Fi</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/kraven-hunter" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/kraven-hunter" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Carry-On -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIP.BOgw1vL2lb7n1yFmhLDFrwHaK-?rs=1&pid=ImgDetMain" alt="Carry-On" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Carry-On</h3>
+                <p class="movie-genre">Action | Drama|Mystery & Thriller</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/a-complete-unknown" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/a-complete-unknown" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Juror #2 -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIP.-oz4GTVgmf5P1qGrerqFngHaLH?rs=1&pid=ImgDetMain" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Juror #2</h3>
+                <p class="movie-genre">Action | Adventure | Family</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/Juror #2" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/sonic-hedgehog-3" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Babygirl -->
+        <div class="movie-card">
+            <img src="https://runpee.com/wp-content/uploads/2024/12/babygirl-poster_uploaded.jpg" alt="Babygirl" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Babygirl</h3>
+                <p class="movie-genre">Animation | Adventure | Drama</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/mufasa-lion-king" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/mufasa-lion-king" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Red One -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIF.3w3IG5eUpCUfdv8O1eEPWA?rs=1&pid=ImgDetMain" alt="Red One" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Red One</h3>
+                <p class="movie-genre">Action | Drama | History</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/gladiator-2" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/gladiator-2" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anora -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.LCoLnd7fnK1qWg2GJg%2buHQ&rs=1&pid=ImgDetMain" alt="Anora" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Anora</h3>
+                <p class="movie-genre">Action | Adventure | Sci-Fi</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/kraven-hunter" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/kraven-hunter" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Small Things Like These -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th?id=OIF.QiuFsvhh2p5Xhuw%2fOl4zEA&rs=1&pid=ImgDetMain" alt="Small Things Like These" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Small Things Like These</h3>
+                <p class="movie-genre">Fantasy | Musical</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/wicked-2024" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/wicked-2024" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heretic -->
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIF.En8RLU15xl0eEmYMKNC9oA?rs=1&pid=ImgDetMain" alt="Heretic" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Heretic</h3>
+                <p class="movie-genre">Animation | Adventure | Comedy</p>
+                <p class="release-date">Coming 2024</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/moana-2" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/moana-2" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+        <div class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Avatar: The Way of Water" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Avatar: The Way of Water</h3>
+                <p class="movie-genre">Sci-Fi | Adventure</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/avatar-way-of-water" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/avatar-way-of-water" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/OIP.3juietNd2Fp2Yfc0hLrO2QHaLC?rs=1&pid=ImgDetMain" alt="Black Panther: Wakanda Forever" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Black Panther: Wakanda Forever</h3>
+                <p class="movie-genre">Action | Drama</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/black-panther-wakanda-forever" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/black-panther-wakanda-forever" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="https://th.bing.com/th/id/R.eca715f9a7e0b42e4a3ab4323b07d0f2?rik=Ios5xyzZkZGLog&pid=ImgRaw&r=0" alt="Encanto" class="movie-image">
+            <div class="movie-info">
+                <h3 class="movie-title">Encanto</h3>
+                <p class="movie-genre">Animation | Musical</p>
+                <div class="button-group">
+                    <a href="https://streamflix.com/watch/encanto" class="btn btn-primary">Watch Now</a>
+                    <a href="https://streamflix.com/download/encanto" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About StreamFlix</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#account">Account</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#cookies">Cookie Preferences</a></li>
+                    <li><a href="#legal">Legal Notices</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 StreamFlix. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Add smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add basic animation to movie cards on hover
+    const movieCards = document.querySelectorAll('.movie-card');
+    movieCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'scale(1.05)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+        });
+    });
+</script>
+</body>
+</html>
