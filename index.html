@@ -111,6 +111,54 @@
             cursor: pointer;
         }
 
+        .header-menu-icon {
+            display: none;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .header-menu-icon i {
+            font-size: 24px;
+            color: var(--light-text);
+        }
+
+        .header-menu-icon .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            flex-direction: column;
+            width: 200px;
+            z-index: 1001;
+        }
+
+        .header-menu-icon .dropdown-menu a {
+            padding: 10px 15px;
+            color: var(--light-text);
+            text-decoration: none;
+            display: block;
+            background: none;
+            border: none;
+            text-align: left;
+        }
+
+        .header-menu-icon .dropdown-menu a:hover {
+            background-color: var(--primary-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .header-nav-links {
+                display: none;
+            }
+
+            .header-menu-icon {
+                display: flex;
+            }
+        }
+
         /* Hero Section */
         .hero {
             height: 80vh;
@@ -334,10 +382,18 @@
             </div>
             <div class="header-menu-icon">
                 <i class="fas fa-bars"></i>
+                <div class="dropdown-menu">
+                    <a href="#" class="nav-link" data-content="home">Home</a>
+                    <a href="#" class="nav-link" data-content="movies">Movies</a>
+                    <a href="#" class="nav-link" data-content="tv-shows">TV Shows</a>
+                    <a href="#" class="nav-link" data-content="premium">Premium</a>
+                    <a href="#" class="nav-link" data-content="contact">Contact</a>
+                </div>
             </div>
         </nav>
     </div>
 </header>
+
 
 <!-- Home Section -->
 <section id="home" class="home">
@@ -3272,6 +3328,16 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuIcon = document.querySelector(".header-menu-icon");
+        const dropdownMenu = document.querySelector(".header-menu-icon .dropdown-menu");
+
+        menuIcon.addEventListener("click", () => {
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+    });
+
 </script>
 </body>
 </html>
