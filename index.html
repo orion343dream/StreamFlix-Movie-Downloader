@@ -284,6 +284,9 @@
 
         /* Further responsiveness for small mobile screens */
         @media (max-width: 480px) {
+
+
+
             .movie-grid {
                 grid-template-columns: repeat(2, 1fr); /* 1 column on very small mobile screens */
             }
@@ -299,6 +302,12 @@
             .movie-genre {
                 font-size: 0.8rem; /* Adjust genre text size for small mobile screens */
             }
+
+            .ad-container {
+                width: 200px; /* Matches the ad width */
+                margin: 10px auto; /* Center the ad */
+            }
+               
         }
 
         /* TV Shows Section */
@@ -417,8 +426,8 @@
         }
 
         .ad-container {
-            width: 728px;
-            height: 90px;
+            width: 360px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -443,6 +452,7 @@
         .ad-box {
             margin-bottom: 20px; /* Space between the ad box and the footer bottom */
         }
+        
 
 
 
