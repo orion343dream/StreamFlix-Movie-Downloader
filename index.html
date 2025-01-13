@@ -263,6 +263,44 @@
             opacity: 0.9;
         }
 
+        /* Responsive: 2 columns on mobile screens */
+        @media (max-width: 768px) {
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+            }
+
+            .movie-image {
+                height: 300px; /* Reduce image size for mobile screens */
+            }
+
+            .movie-title {
+                font-size: 1.1rem; /* Adjust title size for mobile */
+            }
+
+            .movie-genre {
+                font-size: 0.85rem; /* Adjust genre text size for mobile */
+            }
+        }
+
+        /* Further responsiveness for small mobile screens */
+        @media (max-width: 480px) {
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr); /* 1 column on very small mobile screens */
+            }
+
+            .movie-image {
+                height: 250px; /* Further reduce image size on small screens */
+            }
+
+            .movie-title {
+                font-size: 1rem; /* Adjust title size for small mobile screens */
+            }
+
+            .movie-genre {
+                font-size: 0.8rem; /* Adjust genre text size for small mobile screens */
+            }
+        }
+
         /* TV Shows Section */
         .tv-shows {
             padding-top: 80px;
@@ -281,7 +319,7 @@
             text-align: center;
         }
 
-       /* Footer */
+        /* Footer */
         .footer {
             background-color: rgba(0, 0, 0, 0.9);
             padding: 4rem 5%;
@@ -406,7 +444,9 @@
             margin-bottom: 20px; /* Space between the ad box and the footer bottom */
         }
 
-        
+
+
+
     </style>
     <script type='text/javascript' src='//pl25544542.profitablecpmrate.com/aa/a9/59/aaa959fb44f99ceb55a0e6e767bc2d69.js'></script>
 </head>
@@ -451,33 +491,51 @@
             <button class="btn btn-primary">Get Started</button>
         </div>
     </div>
+
+    <div class="header-ad-container">
         <!-- Trending Now Header -->
         <h2 class="section-title">Trending Now</h2>
 
-	  <script type="text/javascript">
-	atOptions = {
-		'key' : '36b63fceca781d8dad1479856d823a27',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
-
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '36b63fceca781d8dad1479856d823a27',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
+        <!-- Ad Column -->
+        <div class="ad-column-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '623d21f6e33301c3403758f4fd3bf062',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
 
 
-    <div class="movie-grid" style="padding: 1.0rem 5%;">
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
+            </div>
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>  </div>
+        </div>
+    </div>
+    <div class="movie-grid" style="padding: 0.1rem 5%;">
 
         <!-- A Complete Unknown -->
         <div class="movie-card">
@@ -782,48 +840,68 @@
             </div>
         </div>
 
-       <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
-	    
+        <div class="ad-container"> <style>
+            .ad-container {
+                width: 320px; /* Matches the ad width */
+                height: 50px; /* Matches the ad height */
+                margin: 20px auto; /* Center the ad */
+                border: 1px solid inherit; /* Optional: Border for visibility */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: inherit; /* Optional: Background color */
+            }
+        </style>
+            <script type="text/javascript">
+                atOptions = {
+                    'key': '1cc035dbe4b03aea2493a14c346dae00',
+                    'format': 'iframe',
+                    'height': 90,
+                    'width': 728,
+                    'params': {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/1cc035dbe4b03aea2493a14c346dae00/invoke.js"></script>
+        </div>
+
     </div>
 </section>
 
 <!-- Movies Section -->
 <section id="movies" class="movies">
     <script type='text/javascript' src='//pl25544542.profitablecpmrate.com/aa/a9/59/aaa959fb44f99ceb55a0e6e767bc2d69.js'></script>
+    <div class="header-ad-container">
         <!-- Trending Now Header -->
         <h2 class="section-title">Movies</h2>
 
-       <script type="text/javascript">
-	atOptions = {
-		'key' : '36b63fceca781d8dad1479856d823a27',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
+        <!-- Ad Column -->
+        <div class="ad-column-container">
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script> </div>
 
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '36b63fceca781d8dad1479856d823a27',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
-	
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script> </div>
+        </div>
+    </div>
+
     <div class="movie-grid" style="padding: 4.0rem 5%" >
 
 
@@ -2802,16 +2880,17 @@
             </div>
         </div>
 
-        <div class="ad-container"> <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '623d21f6e33301c3403758f4fd3bf062',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script> </div>
 
     </div>
 </section>
@@ -2826,26 +2905,28 @@
         <!-- Ad Column -->
         <div class="ad-column-container">
             <div class="ad-container">
-               <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
-		    <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script> </div>
+
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '36b63fceca781d8dad1479856d823a27',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script> </div>
         </div>
     </div>
 
@@ -4159,8 +4240,16 @@
         </div>
 
         <div class="ad-container">
-            <script type="text/javascript" src="//www.highperformanceformat.com/1cc035dbe4b03aea2493a14c346dae00/invoke.js"></script>
-        </div>
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '623d21f6e33301c3403758f4fd3bf062',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script> </div>
 
     </div>
 </section>
@@ -4175,28 +4264,29 @@
 
         <!-- Ad Column -->
         <div class="ad-column-container">
-            <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '623d21f6e33301c3403758f4fd3bf062',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script> </div>
 
-		
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '623d21f6e33301c3403758f4fd3bf062',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script></div>
         </div>
     </div>
 
@@ -4218,28 +4308,26 @@
         <div class="ad-column-container">
             <div class="ad-container">
                 <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
+                    atOptions = {
+                        'key' : '623d21f6e33301c3403758f4fd3bf062',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script></div>
 
-		    <script type="text/javascript">
-	atOptions = {
-		'key' : '623d21f6e33301c3403758f4fd3bf062',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script>
-
-		    
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '623d21f6e33301c3403758f4fd3bf062',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/623d21f6e33301c3403758f4fd3bf062/invoke.js"></script> </div>
         </div>
     </div>
 
@@ -4324,6 +4412,9 @@
         </div>
     </div>
 </footer>
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
