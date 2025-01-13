@@ -281,7 +281,7 @@
             text-align: center;
         }
 
-        /* Footer */
+         /* Footer */
         .footer {
             background-color: rgba(0, 0, 0, 0.9);
             padding: 4rem 5%;
@@ -339,6 +339,14 @@
             color: var(--primary-color);
         }
 
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray-text);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-nav-links {
@@ -356,14 +364,47 @@
             }
         }
 
-         .footer-bottom {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: var(--gray-text);
+        .header-ad-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.1rem 5%;
         }
 
+        /* Ad container styling */
+        .ad-column-container {
+            display: flex;
+            flex-direction: column; /* Stack ads vertically */
+            gap: 1px; /* Space between ads */
+        }
+
+        .ad-container {
+            width: 728px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: inherit;
+
+        }
+
+        /* Ensure the footer-social-and-ad container is displayed as a column */
+        .footer-social-and-ad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Optional: Style the footer-social and ad-box for better alignment */
+        .footer-social {
+            margin-bottom: 20px; /* Add space between social links and ad */
+        }
+
+        .ad-box {
+            margin-bottom: 20px; /* Space between the ad box and the footer bottom */
+        }
 
         
     </style>
