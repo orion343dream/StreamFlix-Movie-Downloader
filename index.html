@@ -440,6 +440,32 @@
                     background-color: inherit;
                 }
 
+                  /* Ensure the footer-social-and-ad container is displayed as a column */
+        .footer-social-and-ad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Optional: Style the footer-social and ad-box for better alignment */
+        .footer-social {
+            margin-bottom: 20px; /* Add space between social links and ad */
+        }
+
+        .ad-box {
+            margin-bottom: 20px; /* Space between the ad box and the footer bottom */
+        }
+
+        /* Footer bottom can be centered or styled to fit your needs */
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+
             </style>
                 <script type="text/javascript">
                     atOptions = {
@@ -4450,13 +4476,30 @@
                 </ul>
             </div>
 
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="footer-social-and-ad">
+                <!-- Social Media Links -->
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ad Section -->
+                <div class="ad-box" style="width: 320px; height: 50px; margin: 20px auto; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center; background-color: inherit;">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key': '36b63fceca781d8dad1479856d823a27',
+                            'format': 'iframe',
+                            'height': 50,
+                            'width': 320,
+                            'params': {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/36b63fceca781d8dad1479856d823a27/invoke.js"></script>
                 </div>
             </div>
         </div>
